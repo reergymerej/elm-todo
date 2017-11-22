@@ -113,3 +113,8 @@ Now we're adding to our list each time we click the button.  Remember, we can
 push or alter the list.  Instead, we create a new list by
 [appending](http://package.elm-lang.org/packages/elm-lang/core/latest/List#append)
 the original with a new list of one item.
+
+ref:git:10647da
+
+Now we're starting with an empty list and populating it when we click the
+button.  This is so exciting!
