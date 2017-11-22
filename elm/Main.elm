@@ -18,11 +18,7 @@ type alias Model =
 
 model =
     { tasks =
-        [ { name = "do foo", done = False }
-        , { name = "do bar", done = False }
-        , { name = "do baz", done = False }
-        , { name = "do quux", done = False }
-        ]
+        []
     }
 
 
@@ -37,7 +33,9 @@ update msg model =
             { model
                 | tasks =
                     List.append model.tasks
-                        [ { name = "new task"
+                        [ { name =
+                                "task #"
+                                    ++ (toString (List.length model.tasks + 1))
                           , done = False
                           }
                         ]

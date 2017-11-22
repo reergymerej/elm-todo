@@ -106,3 +106,10 @@ There we go.  We're mapping the models and spitting out items.
 
 At this point, let's figure out how to add to the list of tasks.  We'll make a
 button and just push some junk on each click for now.
+
+ref:git:aa026a1
+
+Now we're adding to our list each time we click the button.  Remember, we can
+push or alter the list.  Instead, we create a new list by
+[appending](http://package.elm-lang.org/packages/elm-lang/core/latest/List#append)
+the original with a new list of one item.
