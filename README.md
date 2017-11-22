@@ -68,3 +68,16 @@ There we go.  Now we can just `yarn build` and get a new `public/index.html`.
 ### Now that we've got a server and something to see...
 
 Let's make a button that responds to our clicks.
+
+ref:git:70089e4
+
+Now we've got a button that causes the model to change.  That's good, but
+pointless.  Let's work toward something useful.  Instead of top-down, maybe we
+can go bottom up.  At the lowest level, we'll have a todo item that will have
+text and a done state we want to toggle.  Let's make that.
+
+I don't know how to import from other files yet, but we'll cross that bridge
+later.
+
+...On second thought, let's not complicate things yet.  We'll just keep
+everything in Main.elm.
