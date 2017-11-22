@@ -97,4 +97,12 @@ ASIDE: [Here's a good
 tutorial](https://www.elm-tutorial.org/en/04-starting/cover.html) right in the
 docs that shows how to start out.  :D  RTFM, eh?
 
+ref:git:e8ecfd0
 
+There we go.  We're mapping the models and spitting out items.
+
+
+### We are now dynamically rendering the list of tasks.
+
+At this point, let's figure out how to add to the list of tasks.  We'll make a
+button and just push some junk on each click for now.

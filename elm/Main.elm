@@ -27,14 +27,21 @@ model =
 
 
 type Msg
-    = ChangeItUp
+    = AddTask
 
 
 update : Msg -> Model -> Model
 update msg model =
     case msg of
-        ChangeItUp ->
-            model
+        AddTask ->
+            { model
+                | tasks =
+                    List.append model.tasks
+                        [ { name = "new task"
+                          , done = False
+                          }
+                        ]
+            }
 
 
 renderItem : Task -> Html Msg
@@ -47,5 +54,8 @@ view model =
     div []
         [ div []
             [ ul [] (List.map renderItem model.tasks)
+            ]
+        , button [ onClick AddTask ]
+            [ text ("add a task")
             ]
         ]
