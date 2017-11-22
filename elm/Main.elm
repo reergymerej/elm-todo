@@ -4,15 +4,24 @@ import Html exposing (..)
 import Html.Events exposing (onClick)
 
 
+main =
+    Html.beginnerProgram { model = model, view = view, update = update }
+
+
+type alias Task =
+    { name : String, done : Bool }
+
+
 type alias Model =
-    { message : String
-    , taskDone : Bool
-    }
+    { tasks : List Task }
 
 
 model =
-    { message = "Hello"
-    , taskDone = False
+    { tasks =
+        [ { name = "do foo", done = False }
+        , { name = "do bar", done = False }
+        , { name = "do baz", done = False }
+        ]
     }
 
 
@@ -24,19 +33,11 @@ update : Msg -> Model -> Model
 update msg model =
     case msg of
         ChangeItUp ->
-            { model
-                | message = "Howdy."
-                , taskDone = not model.taskDone
-            }
+            model
 
 
 view : Model -> Html Msg
 view model =
     div []
-        [ button [ onClick ChangeItUp ] [ text "change" ]
-        , div [] [ text (toString model) ]
+        [ div [] [ text (toString model) ]
         ]
-
-
-main =
-    Html.beginnerProgram { model = model, view = view, update = update }

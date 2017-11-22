@@ -81,3 +81,10 @@ later.
 
 ...On second thought, let's not complicate things yet.  We'll just keep
 everything in Main.elm.
+
+ref:git:76e8d1c
+
+We've made the model a record and added a boolean to it so we can toggle when
+the button is clicked.  We want to have a list of tasks that look kind of like
+this.  I don't know how to do all that yet, so let's just start by putting them
+in the model and rendering them.
