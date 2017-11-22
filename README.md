@@ -21,3 +21,27 @@ can just make the app with .elm and elm-make will spit out what we need.
 Let's try this.  It looks like the convention is `Main.elm`.  Let's make that
 and see if it can generate some HTML for us.
 
+ref:git:6e1614a
+
+At this stage, the app works through `elm-reactor`.
+
+Can I build it as an html file?
+
+`elm-make Main.elm --output=main.html`
+
+That indeed built an html file with embedded JS that does the same thing.  I can
+see now the infamous enormous JS.  :)  It's not minified or uglified, though.
+
+Technically, this is a fully functioning useless Elm app.  Let's celebrate and
+publish it!
+
+I just realized, I need a server.  Is that something Elm should do?  I saw a
+mention of it in the elm-make docs.
+
+[This dude's](https://dennisreimann.de/articles/elm-setup-first-project.html)
+article is pretty useful for a noob.
+
+I must have drunk too much Koolaide.  Elm _may_ be used on the server, as it
+compiles to JS, but it's not a panacea.  It's client language.
+
+Let's just make a quick Express server.
