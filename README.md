@@ -45,3 +45,17 @@ I must have drunk too much Koolaide.  Elm _may_ be used on the server, as it
 compiles to JS, but it's not a panacea.  It's client language.
 
 Let's just make a quick Express server.
+
+ref:git:c63f670
+
+So now we've got an Express server running, which is standard, and the
+elm-reactor server running, to help us preview code before it's compiled
+properly.  Eek.  This doesn't sound right.
+
+Either way, let's change our elm-make command to spit out this hotness into the
+static dir.
+
+`elm-make Main.elm --output=public/index.html`
+
+That works, but I don't want to keep typing that and we should probably keep our
+Elm stuff in its own dir before it gets out of hand.
