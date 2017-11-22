@@ -17,13 +17,16 @@ type alias Model =
 
 
 model =
-    { tasks =
-        []
-    }
+    { tasks = [] }
 
 
 type Msg
     = AddTask
+
+
+getNextTaskName : List Task -> String
+getNextTaskName tasks =
+    "task #" ++ toString (List.length tasks + 1)
 
 
 update : Msg -> Model -> Model
@@ -33,9 +36,7 @@ update msg model =
             { model
                 | tasks =
                     List.append model.tasks
-                        [ { name =
-                                "task #"
-                                    ++ (toString (List.length model.tasks + 1))
+                        [ { name = (getNextTaskName model.tasks)
                           , done = False
                           }
                         ]
