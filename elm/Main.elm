@@ -21,6 +21,7 @@ model =
         [ { name = "do foo", done = False }
         , { name = "do bar", done = False }
         , { name = "do baz", done = False }
+        , { name = "do quux", done = False }
         ]
     }
 
@@ -36,8 +37,15 @@ update msg model =
             model
 
 
+renderItem : Task -> Html Msg
+renderItem task =
+    li [] [ text (task.name) ]
+
+
 view : Model -> Html Msg
 view model =
     div []
-        [ div [] [ text (toString model) ]
+        [ div []
+            [ ul [] (List.map renderItem model.tasks)
+            ]
         ]

@@ -88,3 +88,13 @@ We've made the model a record and added a boolean to it so we can toggle when
 the button is clicked.  We want to have a list of tasks that look kind of like
 this.  I don't know how to do all that yet, so let's just start by putting them
 in the model and rendering them.
+
+ref:git:c3c9761e2c7ab7962337498adb42d15979b23346
+
+Here is a static list of tasks.  Let's loop over them when rendering.
+
+ASIDE: [Here's a good
+tutorial](https://www.elm-tutorial.org/en/04-starting/cover.html) right in the
+docs that shows how to start out.  :D  RTFM, eh?
+
+
