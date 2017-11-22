@@ -59,3 +59,7 @@ static dir.
 
 That works, but I don't want to keep typing that and we should probably keep our
 Elm stuff in its own dir before it gets out of hand.
+
+ref:git:d83468a
+
+There we go.  Now we can just `yarn build` and get a new `public/index.html`.
