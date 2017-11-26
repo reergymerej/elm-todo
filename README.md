@@ -151,4 +151,6 @@ of them are done.  We want to toggle the done state when we click on them.  How
 do we do that?  I'm sure there's a click handler, but how do we tie that to the
 task instance the html is being rendered for?
 
+ref:git:907b60f
 
+Now we're toggling states by clicking on tasks.

@@ -10,7 +10,10 @@ main =
 
 
 type alias Task =
-    { name : String, done : Bool }
+    { name : String
+    , done : Bool
+    , id : Int
+    }
 
 
 type alias Model =
@@ -40,6 +43,7 @@ update msg model =
                     List.append model.tasks
                         [ { name = model.text
                           , done = False
+                          , id = 9
                           }
                         ]
                 , text = ""
