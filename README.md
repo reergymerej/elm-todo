@@ -118,3 +118,13 @@ ref:git:10647da
 
 Now we're starting with an empty list and populating it when we click the
 button.  This is so exciting!
+
+
+Sat Nov 25 18:53:35 CST 2017
+
+We are back!  Now let's specify the text of the new item using a input.  First,
+we'll make an input and add its value to the model.
+
+```
+import Html.Attributes exposing (..)
+```

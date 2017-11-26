@@ -1,7 +1,8 @@
 module Main exposing (..)
 
 import Html exposing (..)
-import Html.Events exposing (onClick)
+import Html.Events exposing (onClick, onInput)
+import Html.Attributes exposing (..)
 
 
 main =
@@ -13,15 +14,20 @@ type alias Task =
 
 
 type alias Model =
-    { tasks : List Task }
+    { tasks : List Task
+    , text : String
+    }
 
 
 model =
-    { tasks = [] }
+    { tasks = []
+    , text = ""
+    }
 
 
 type Msg
     = AddTask
+    | ChangeText String
 
 
 getNextTaskName : List Task -> String
@@ -42,6 +48,9 @@ update msg model =
                         ]
             }
 
+        ChangeText newValue ->
+            { model | text = newValue }
+
 
 renderItem : Task -> Html Msg
 renderItem task =
@@ -57,4 +66,5 @@ view model =
         , button [ onClick AddTask ]
             [ text ("add a task")
             ]
+        , input [ type_ "text", onInput ChangeText ] []
         ]
