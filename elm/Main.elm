@@ -48,9 +48,29 @@ update msg model =
             { model | text = newValue }
 
 
+unfinishedTaskStyle : Attribute msg
+unfinishedTaskStyle =
+    style []
+
+
+finishedTaskStyle : Attribute msg
+finishedTaskStyle =
+    style [ ( "text-decoration", "line-through" ) ]
+
+
+getTaskStyle : Task -> Attribute msg
+getTaskStyle task =
+    if (task.done) then
+        finishedTaskStyle
+    else
+        unfinishedTaskStyle
+
+
 renderItem : Task -> Html Msg
 renderItem task =
-    li [] [ text (task.name) ]
+    li [ getTaskStyle task ]
+        [ text (task.name)
+        ]
 
 
 view : Model -> Html Msg

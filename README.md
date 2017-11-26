@@ -135,3 +135,11 @@ ref:git:7729449
 Now we're setting `model.text` by the input (and vice versa) and using it to set
 the name for the next task.  `enter` doesn't do anything, though, since we don't
 have a proper form.
+
+ref:git:074fcd8
+
+Handling onEnter turns out to be more difficult that expected.  For now, we're
+just going to move the inputs around.
+
+We need to show two different states for the items, todo and done.  For now,
+let's just print it in text.
