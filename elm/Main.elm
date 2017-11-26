@@ -33,7 +33,7 @@ model =
 type Msg
     = AddTask
     | ChangeText String
-    | UpdateTaskCompletion Task Bool
+    | UpdateTaskCompletion Int Bool
 
 
 update : Msg -> Model -> Model
@@ -55,10 +55,10 @@ update msg model =
         ChangeText newValue ->
             { model | text = newValue }
 
-        UpdateTaskCompletion task done ->
+        UpdateTaskCompletion taskId done ->
             let
                 updateTask t =
-                    if (t == task) then
+                    if (t.id == taskId) then
                         { t | done = done }
                     else
                         t
@@ -91,7 +91,7 @@ renderTask : Task -> Html Msg
 renderTask task =
     div
         [ getTaskStyle task
-        , onClick (UpdateTaskCompletion task (not task.done))
+        , onClick (UpdateTaskCompletion task.id (not task.done))
         ]
         [ text (task.name)
         ]
