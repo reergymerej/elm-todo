@@ -30,11 +30,6 @@ type Msg
     | ChangeText String
 
 
-getNextTaskName : List Task -> String
-getNextTaskName tasks =
-    "task #" ++ toString (List.length tasks + 1)
-
-
 update : Msg -> Model -> Model
 update msg model =
     case msg of
@@ -42,10 +37,11 @@ update msg model =
             { model
                 | tasks =
                     List.append model.tasks
-                        [ { name = (getNextTaskName model.tasks)
+                        [ { name = model.text
                           , done = False
                           }
                         ]
+                , text = ""
             }
 
         ChangeText newValue ->
@@ -63,8 +59,11 @@ view model =
         [ div []
             [ ul [] (List.map renderItem model.tasks)
             ]
-        , button [ onClick AddTask ]
+        , button
+            [ onClick AddTask
+            , disabled (String.length model.text == 0)
+            ]
             [ text ("add a task")
             ]
-        , input [ type_ "text", onInput ChangeText ] []
+        , input [ type_ "text", onInput ChangeText, value model.text ] []
         ]

@@ -125,6 +125,7 @@ Sat Nov 25 18:53:35 CST 2017
 We are back!  Now let's specify the text of the new item using a input.  First,
 we'll make an input and add its value to the model.
 
-```
-import Html.Attributes exposing (..)
-```
+ref:git:a479c6d
+
+We're getting the value from the input and saving it in the model now.  The
+event we need is `onInput`, not `onChange`.
