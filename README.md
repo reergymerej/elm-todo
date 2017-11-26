@@ -143,3 +143,12 @@ just going to move the inputs around.
 
 We need to show two different states for the items, todo and done.  For now,
 let's just print it in text.
+
+ref:git:95ac250
+
+We're rendering the tasks with a line through them if they're done now, but none
+of them are done.  We want to toggle the done state when we click on them.  How
+do we do that?  I'm sure there's a click handler, but how do we tie that to the
+task instance the html is being rendered for?
+
+

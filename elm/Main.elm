@@ -28,6 +28,7 @@ model =
 type Msg
     = AddTask
     | ChangeText String
+    | UpdateTaskCompletion Task Bool
 
 
 update : Msg -> Model -> Model
@@ -47,6 +48,18 @@ update msg model =
         ChangeText newValue ->
             { model | text = newValue }
 
+        UpdateTaskCompletion task done ->
+            let
+                updateTask t =
+                    if (t == task) then
+                        { t | done = done }
+                    else
+                        t
+            in
+                { model
+                    | tasks = List.map (updateTask) model.tasks
+                }
+
 
 unfinishedTaskStyle : Attribute msg
 unfinishedTaskStyle =
@@ -55,6 +68,7 @@ unfinishedTaskStyle =
 
 finishedTaskStyle : Attribute msg
 finishedTaskStyle =
+    -- How do we generate a style sheet to use class names instead?
     style [ ( "text-decoration", "line-through" ) ]
 
 
@@ -66,9 +80,12 @@ getTaskStyle task =
         unfinishedTaskStyle
 
 
-renderItem : Task -> Html Msg
-renderItem task =
-    li [ getTaskStyle task ]
+renderTask : Task -> Html Msg
+renderTask task =
+    div
+        [ getTaskStyle task
+        , onClick (UpdateTaskCompletion task (not task.done))
+        ]
         [ text (task.name)
         ]
 
@@ -77,8 +94,7 @@ view : Model -> Html Msg
 view model =
     div []
         [ div []
-            [ ul [] (List.map renderItem model.tasks)
-            ]
+            (List.map renderTask model.tasks)
         , input
             [ type_ "text"
             , onInput ChangeText
