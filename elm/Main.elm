@@ -18,12 +18,14 @@ type alias Task =
 
 type alias Model =
     { tasks : List Task
+    , nextTaskId : Int
     , text : String
     }
 
 
 model =
     { tasks = []
+    , nextTaskId = 0
     , text = ""
     }
 
@@ -43,9 +45,10 @@ update msg model =
                     List.append model.tasks
                         [ { name = model.text
                           , done = False
-                          , id = 9
+                          , id = model.nextTaskId
                           }
                         ]
+                , nextTaskId = model.nextTaskId + 1
                 , text = ""
             }
 
