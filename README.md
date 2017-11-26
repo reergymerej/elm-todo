@@ -154,3 +154,26 @@ task instance the html is being rendered for?
 ref:git:907b60f
 
 Now we're toggling states by clicking on tasks.
+
+When clicking, we're emitting a message with a task and a boolean to set the
+new value to.  That leads us to map the list of tasks and, if the task is the
+one we clicked, change its "done" value.  However, we're not using anything
+unique, so { name = "foo", done = False } could be in the list multiple times.
+That would lead us to toggle both of them when clicked.  Instead of all this,
+let's give each task a unique ID and use _that_ to update the value.
+
+ref:git:951a860
+
+If we use the length of tasks to set the ID, if we eventually add the ability to
+remove a task, that will lead to bugs with duplicate IDs.  If we keep a count,
+we can use that.  My instinct was to use a local varible in some function, but
+we don't do things like that.  It's state, so it needs to be in the model.
+
+ref:git:946726a
+
+There we go.  Now let's key off the task ID when toggling the done state.
+
+ref:git:82b7cb0
+
+Now we can have duplicate task names, but they are still treated as unique
+tasks.
