@@ -129,3 +129,9 @@ ref:git:a479c6d
 
 We're getting the value from the input and saving it in the model now.  The
 event we need is `onInput`, not `onChange`.
+
+ref:git:7729449
+
+Now we're setting `model.text` by the input (and vice versa) and using it to set
+the name for the next task.  `enter` doesn't do anything, though, since we don't
+have a proper form.

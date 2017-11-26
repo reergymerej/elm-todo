@@ -59,11 +59,16 @@ view model =
         [ div []
             [ ul [] (List.map renderItem model.tasks)
             ]
+        , input
+            [ type_ "text"
+            , onInput ChangeText
+            , value model.text
+            ]
+            []
         , button
             [ onClick AddTask
             , disabled (String.length model.text == 0)
             ]
             [ text ("add a task")
             ]
-        , input [ type_ "text", onInput ChangeText, value model.text ] []
         ]
